@@ -2,8 +2,8 @@
   <div>
     <h2>タスクの追加</h2>
     <form>
-      <input type="text" id="textbox" v-model="task" />
-      <input type="button" value="追加" @click="addTask" />
+      <input type="text" class="textbox" v-model="task" />
+      <input type="button" class="button-add" value="追加" @click="addTask" />
     </form>
   </div>
 </template>
@@ -16,8 +16,10 @@ export default {
   },
   methods: {
     addTask() {
-      this.$emit('add', this.task);
-      this.task = '';
+      if (this.task != '') {
+        this.$emit('add', this.task);
+        this.task = '';
+      }
     },
   },
 };
