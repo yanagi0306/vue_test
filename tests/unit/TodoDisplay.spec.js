@@ -17,55 +17,26 @@ const factory = (propsData) => {
   })
 }
 
-describe('valueがAll', () => {
+describe('ラジオボタンがすべての時', () => {
   const wrapper = factory({ value: 'All' })
   const All = wrapper.find('#All')
-  it('表示確認', () => {
+  it('すべてのタスク表示確認', () => {
     expect(All.exists()).toBe(true)
   })
-  it('statusChangeのイベント動作確認', () => {
-    wrapper.findAll('.button-status').at(0).trigger('click')
-    expect(wrapper.emitted('statusChange')[0][0]).toBe(0)
-  })
-  it('delのイベント動作確認', () => {
-    wrapper.findAll('.button-del').at(0).trigger('click')
-    expect(wrapper.emitted('del')[0][0]).toBe(0)
-  })
 })
 
-describe('valueがWorking', () => {
+describe('ラジオボタンが作業中の時', () => {
   const wrapper = factory({ value: 'Working' })
   const Working = wrapper.find('#Working')
-  it('表示確認', () => {
+  it('作業中のタスク表示確認', () => {
     expect(Working.exists()).toBe(true)
   })
-  it('statusChangeのイベント動作確認', () => {
-    wrapper.findAll('.button-status').at(0).trigger('click')
-    expect(wrapper.emitted('statusChange')[0][0]).toBe(0)
-  })
-  it('delのイベント動作確認', () => {
-    wrapper.findAll('.button-del').at(0).trigger('click')
-    expect(wrapper.emitted('del')[0][0]).toBe(0)
-  })
 })
 
-describe('valueがDone', () => {
+describe('ラジオボタンが完了の時', () => {
   const wrapper = factory({ value: 'Done' })
   const Done = wrapper.find('#Done')
-  it('表示確認', () => {
+  it('完了の表示確認', () => {
     expect(Done.exists()).toBe(true)
   })
-  it('statusChangeのイベント動作確認', () => {
-    wrapper.findAll('.button-status').at(0).trigger('click')
-    expect(wrapper.emitted('statusChange')[0][0]).toBe(1)
-  })
-  it('delのイベント動作確認', () => {
-    wrapper.findAll('.button-del').at(0).trigger('click')
-    expect(wrapper.emitted('del')[0][0]).toBe(1)
-  })
 })
-
-
-
-
-
